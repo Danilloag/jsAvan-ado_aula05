@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        class Aluno {
+            nome = "";
+            endereco = "";
+            data_nascimento = null;
+            email = "";
+            telefone = "";
+            notas = [];
+            #id = null;
+
+            constructor(nome, id) {
+                this.nome = nome;
+                this.#id = id;
+            }
+
+            mostrarId() {
+                let id = this.#id
+                return id
+            }
+        }
+
+        class Avaliacao {
+            tipo = "";
+            nota = 0;
+            observacao = "";
+
+            constructor(tipo) {
+                this.tipo = tipo;
+            }
+        }
+
+        function geradorId() {
+            let id = 0;
+            return function () {
+                id++;
+                return id;
+            }
+        }
+
+        let gerarIdAluno = geradorId()
+
+        let aluno1 = new Aluno("Danillo", gerarIdAluno());
+        let aluno2 = new Aluno("João", gerarIdAluno());
+
+        console.log(aluno1.mostrarId())
+        console.log(aluno2.mostrarId())
+    </script>
+</body>
+
+</html>
